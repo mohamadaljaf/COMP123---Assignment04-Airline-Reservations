@@ -31,6 +31,7 @@ namespace Assignment04_Airline_Reservations
         // displays a menu that loops until the user chooses to exit
         private static void MainMenu()
         {
+            Airplane airPlane = new Airplane();
             int selection = 0; // default selection
 
             while (selection != 3)
@@ -56,13 +57,27 @@ namespace Assignment04_Airline_Reservations
                 switch (selection)
                 {
                     case 1:
-                        // CODE FOR CASE 1
+                        if (airPlane.AssignSeat(1) == false)
+                        {
+                            Console.Write("Sorry, but all the first class seats are taken. Would you like to be placed in the economy class? (Y/N): ");
+                            if (Console.ReadKey().Key == ConsoleKey.Y)
+                            {
+                                selection = 2;
+                            }
+                            else
+                            {
+                                selection = 4;
+                            }
+                        }
                         break;
                     case 2:
                         // CODE FOR CASE 1
                         break;
                     case 3:
                         Console.WriteLine();
+                        break;
+                    case 4:
+                        Console.WriteLine("Next flight leaves in 3 hours.");
                         break;
                     default:
                         Console.WriteLine();
