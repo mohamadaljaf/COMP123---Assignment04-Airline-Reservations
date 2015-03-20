@@ -1,30 +1,29 @@
-﻿using System;
+﻿///------------------------------------------------------------------------------------------
+///   Author:               Mohamad Al-Jaf   
+///   
+///   Date last modified:   March 20, 2015
+///   
+///   Class description:    A airplane object that has 2 different seating areas, first-class
+///                         and economy-class. Has 10 seats total with each class having 5 seats
+///                         available. Can assign seats and check if they are taken or not.
+///------------------------------------------------------------------------------------------
+using System;
 
 namespace Assignment04_Airline_Reservations
 {
+    // Airplane class - blueprint for airplane objects
     class Airplane
     {
+        // INSTANCE VARIABLES ******************************************
         private bool[] seats;
 
+        // CONSTRUCTOR(S) ******************************************
         public Airplane()
         {
             seats = new bool[10]; // first class seating is 1-5 and economy is 6-10
         }
 
-        // returns the index of a seat that's empty or -1 if none are empty
-        private int CheckSeats(int index, int length)
-        {
-            for (int i = index; i < length; i++)
-            {
-                if (seats[i] == false)
-                {
-                    return i; //returns the index of the seat
-                }
-            }
-
-            return -1; //none of the seats are empty in the given length
-        }
-
+        // PUBLIC METHODS ******************************************
         // Assigns a seat based on the selection and if chosen class is full then the user can select the other class or not
         public void AssignSeat(int travelClass)
         {
@@ -89,6 +88,21 @@ namespace Assignment04_Airline_Reservations
                     Console.WriteLine("Error: Please enter a valid input.");
                     break;
             }
+        }
+
+        // PRIVATE METHODS ******************************************
+        // returns the index of a seat that's empty or -1 if none are empty
+        private int CheckSeats(int index, int length)
+        {
+            for (int i = index; i < length; i++)
+            {
+                if (seats[i] == false)
+                {
+                    return i; //returns the index of the seat
+                }
+            }
+
+            return -1; //none of the seats are empty in the given length
         }
     }
 }

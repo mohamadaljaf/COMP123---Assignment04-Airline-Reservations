@@ -5,13 +5,15 @@
 ///   
 ///   Date last modified:   March 15, 2015
 ///   
-///   Program description:  A program that rolls a set of dice for a user-input number of
-///                         times and displays the tally of the sum of the two dice rolled.
+///   Program description:  A program that displays a menu with 3 options. If the user selects
+///                         a seat that is not available then they are offered the alternative
+///                         or can wait 3 hours for the next flight.
 ///                         
 ///   Revision History:     2015-03-15: Initial build
-///                         2015-03-15: Added a Dice class and implemented the rollDice method
-///                         2015-03-15: Fixed an issue where the tally numbers were incorrect
-///                         2015-03-15: Added documentation
+///                         2015-03-15: Added the main menu
+///                         2015-03-15: Added an airplane class
+///                         2015-03-20: Finished the airplane class and the main program
+///                         2015-03-20: Added documentation
 ///------------------------------------------------------------------------------------------
 
 using System;
@@ -29,7 +31,7 @@ namespace Assignment04_Airline_Reservations
         private static void MainMenu()
         {
             int selection = 0; // default selection
-            Airplane airPlane = new Airplane(); 
+            Airplane airPlane = new Airplane();
 
             while (selection != 3)
             {
